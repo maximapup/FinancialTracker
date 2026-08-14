@@ -31,6 +31,17 @@ public class Mind {
 		saveline = amount + ", " + type + ", " + category + ", " + date + "; " + description;
 		System.out.println(saveline);
 		
+		try {
+			File newObj = new File(savefile);
+			if (newObj.createNewFile()) {
+				System.out.println("File Create: " + newObj.getName());
+			} else {
+				System.out.println("File " + savefile + " already exists.");
+			}
+		} catch (IOException e) {
+			System.out.println("Error creating file: " + e.getMessage());
+		}
+		
 		try (PrintWriter writer = new PrintWriter(new FileWriter(savefile))) {
 			writer.println(saveline);
 		} catch (IOException e) {

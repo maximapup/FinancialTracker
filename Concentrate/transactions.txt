@@ -1,1 +1,1 @@
-19.99, Expense, Groceries, 08/14/2026; foodstuffs
+7.99, Income, Detailing, 08/14/2026; Erik's Car
