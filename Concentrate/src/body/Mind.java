@@ -6,6 +6,7 @@ public class Mind {
 	public static void main (String[] args) {
 		//Financial Tracker, start with Amount, Type, Category, Date, Description inputs, and output them to start, then upload to github.
 		//Save these inputs to a separate file to be used for later, then output all lines within the folder.
+		//Inputs will be placed in the file on new lines, as to not overwrite existing data
 		Scanner myObj = new Scanner(System.in);
 		float amount = 0; //How much is the amount transacted?
 		String type = ""; //Is this income or expense?
@@ -27,9 +28,11 @@ public class Mind {
 		date = myObj.nextLine();
 		System.out.println("Describe what the transaction is.");
 		description = myObj.nextLine();
-	
+		myObj.close();
+		
 		saveline = amount + ", " + type + ", " + category + ", " + date + "; " + description;
 		System.out.println(saveline);
+		
 		
 		try {
 			File newObj = new File(savefile);
@@ -42,8 +45,9 @@ public class Mind {
 			System.out.println("Error creating file: " + e.getMessage());
 		}
 		
-		try (PrintWriter writer = new PrintWriter(new FileWriter(savefile))) {
-			writer.println(saveline);
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(savefile))) {
+			writer.write(saveline);
+			writer.newLine();
 		} catch (IOException e) {
 			System.err.println("Error writing to file: " + e.getMessage());
 		}
