@@ -37,26 +37,26 @@ public class Mind {
 		try {
 			File newObj = new File(savefile);
 			if (newObj.createNewFile()) {
-				System.out.println("File Create: " + newObj.getName());
+				System.out.println("New file created named: " + newObj.getName());
 			} else {
-				System.out.println("File " + savefile + " already exists.");
+				System.out.println("File " + savefile + " already exists, loading file.");
 			}
 		} catch (IOException e) {
-			System.out.println("Error creating file: " + e.getMessage());
+			System.out.println("Error creating file " + savefile + ": " + e.getMessage());
 		}
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(savefile))) {
 			writer.write(saveline);
 			writer.newLine();
 		} catch (IOException e) {
-			System.err.println("Error writing to file: " + e.getMessage());
+			System.err.println("Error writing to file" + savefile + ": " + e.getMessage());
 		}
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(savefile))) {
 			String loadline = reader.readLine();
 			System.out.println(loadline);
 		} catch (IOException e) {
-			System.err.println("Error writing from file:" + e.getMessage());
+			System.err.println("Error writing from file" + savefile + ": " + e.getMessage());
 		}
 	}
 }

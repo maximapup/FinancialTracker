@@ -1,1 +1,1 @@
-19.99, income, grocercies, 08/16/2026; selling cucumbers
+7.99, expense, vehicle, 08/16/2026; cleaning chemicals
