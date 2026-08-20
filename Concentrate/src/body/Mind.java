@@ -7,6 +7,7 @@ public class Mind {
 		//Financial Tracker, start with Amount, Type, Category, Date, Description inputs, and output them to start, then upload to github.
 		//Save these inputs to a separate file to be used for later, then output all lines within the folder.
 		//Inputs will be placed in the file on new lines, as to not overwrite existing data
+		//Follow procedure of Object Oriented Programming
 		Scanner myObj = new Scanner(System.in);
 		float amount = 0; //How much is the amount transacted?
 		String type = ""; //Is this income or expense?
